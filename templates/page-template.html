@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Authors: James McGuigan & Steven Foster -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src https://cdnjs.cloudflare.com; img-src 'self' data:;">
+    <meta name="description" content="Page description for Recspicy - Recipe management and meal planning site">
+    <title>Page Title - Recspicy</title>
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/footer.css">
+
+</head>
+<body>
+
+    <main class="container">
+        <header class="page-header">
+            <h1 class="page-title">Page Title</h1>
+            <p class="page-subtitle">Page subtitle or description goes here</p>
+        </header>
+
+        <div id="error-container" class="error-message" style="display:none;">
+            <span id="error-message"></span>
+        </div>
+
+        <section class="card">
+            <h2 class="section-title">Section Title</h2>
+            <p>Section content goes here</p>
+        </section>
+        <div class="two-column">
+            <div class="main-content">
+                <section class="card">
+                    <h2 class="section-title">Main Content</h2>
+                    <p>Main content area</p>
+                </section>
+            </div>
+            <aside class="sidebar">
+                <div class="info-card">
+                    <h3 class="info-card-title">Sidebar Content</h3>
+                    <p>Sidebar information</p>
+                </div>
+            </aside>
+        </div>
+
+        <section class="card form-container">
+            <h2 class="section-title">Form Example</h2>
+            <form id="example-form">
+                <div class="form-group">
+                    <label for="example-input" class="form-label">Input Label</label>
+                    <input type="text" id="example-input" class="form-input" placeholder="Enter text...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="example-select" class="form-label">Select Option</label>
+                    <select id="example-select" class="form-select">
+                        <option value="">Select an option</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                    </select>
+                </div>
+                
+                <div class="text-right">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="mb-lg">
+            <h2 class="section-title">Grid Layout Example</h2>
+            <div class="content-grid">
+                <div class="card">Item 1</div>
+                <div class="card">Item 2</div>
+                <div class="card">Item 3</div>
+                <div class="card">Item 4</div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast-message" class="toast-message"></div>
+
+    <footer>
+	</footer>
+
+    <script type="module" src="../js/navigation.js"></script>
+    <script type="module" src="../js/footer.js"></script>
+</body>
+</html> 

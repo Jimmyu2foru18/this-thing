@@ -1,0 +1,7 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'>
+  <rect width='400' height='300' fill='#f0f0f0'/>
+  <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='#666'>
+    Recipe Image Placeholder
+  </text>
+  <path d='M100 150 L300 150 M200 100 L200 200' stroke='#999' stroke-width='2'/>
+</svg>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Authors: James McGuigan & Steven Foster -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Recspicy</title>
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+    <nav id="nav-container"></nav>
+
+    <main class="search-container">
+        <section class="search-header">
+            <h1 class="search-title" id="profile-name">My Profile</h1>
+            <p class="search-subtitle" id="profile-bio">Your personal recipe collection</p>
+        </section>
+
+        <div class="profile-content">
+            <section class="filters-section">
+                <div class="profile-info">
+                    <img src="../assets/default-avatar.jpg" alt="Profile" class="profile-avatar" id="profile-avatar">
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-value" id="recipe-count">0</span>
+                            <span class="stat-label">Recipes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="favorite-count">0</span>
+                            <span class="stat-label">Favorites</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="mealplan-count">0</span>
+                            <span class="stat-label">Meal Plans</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-actions">
+                        <a href="edit-profile.html" class="search-button edit-button">
+                            Edit Profile
+                        </a>
+                        <a href="create-recipe.html" class="search-button create-recipe-button">
+                            Create Recipe
+                        </a>
+                    </div>
+                </div>
+                
+                <h2 class="filters-title">Preferences</h2>
+                <ul class="preferences-list">
+                    <li>
+                        <span class="preference-label">Dietary</span>
+                        <span class="preference-value" id="dietary-pref">-</span>
+                    </li>
+                    <li>
+                        <span class="preference-label">Allergies</span>
+                        <span class="preference-value" id="allergies-pref">-</span>
+                    </li>
+                    <li>
+                        <span class="preference-label">Cuisine Types</span>
+                        <span class="preference-value" id="cuisine-pref">-</span>
+                    </li>
+                    <li>
+                        <span class="preference-label">Cooking Time</span>
+                        <span class="preference-value" id="time-pref">-</span>
+                    </li>
+                    <li>
+                        <span class="preference-label">Skill Level</span>
+                        <span class="preference-value" id="skill-pref">-</span>
+                    </li>
+                </ul>
+                
+                <h2 class="filters-title">Activity</h2>
+                <div class="activity-chart">
+                    <canvas id="activity-chart"></canvas>
+                </div>
+                <div class="activity-stats">
+                    <div class="activity-item">
+                        <span class="activity-value" id="views-count">0</span>
+                        <span class="activity-label">Recipe Views</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-value" id="cooked-count">0</span>
+                        <span class="activity-label">Recipes Cooked</span>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="results-section">
+                <div class="results-header">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="my-recipes">My Recipes</button>
+                        <button class="tab" data-tab="favorites">Favorites</button>
+                        <button class="tab" data-tab="meal-plans">Meal Plans</button>
+                        <button class="tab" data-tab="collections">Collections</button>
+                    </div>
+                    
+                    <div class="tab-filters">
+                        <select id="recipe-visibility" class="sort-select">
+                            <option value="all">All Recipes</option>
+                            <option value="public">Public Only</option>
+                            <option value="private">Private Only</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="my-recipes" class="tab-content active">
+                    <div class="results-grid" id="user-recipes">
+                        <div class="loading-message">Loading your recipes...</div>
+                    </div>
+                </div>
+                
+                <div id="favorites" class="tab-content">
+                    <div class="results-grid" id="favorite-recipes">
+                        <div class="loading-message">Loading your favorites...</div>
+                    </div>
+                </div>
+                
+                <div id="meal-plans" class="tab-content">
+                    <div class="meal-plans-grid" id="user-meal-plans">
+                        <div class="loading-message">Loading your meal plans...</div>
+                    </div>
+                </div>
+                
+                <div id="collections" class="tab-content">
+                    <div class="collections-grid" id="user-collections">
+                        <div class="loading-message">Loading your collections...</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Recipe</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+
+    <div id="collection-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create Collection</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="collection-name">Collection Name</label>
+                    <input type="text" id="collection-name" class="form-input" placeholder="My Favorites">
+                </div>
+                <div class="form-group">
+                    <label for="collection-description">Description</label>
+                    <textarea id="collection-description" class="form-input" placeholder="A collection of my favorite recipes"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button id="save-collection" class="search-button">Create Collection</button>
+                    <button class="search-button cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-message" class="toast-message"></div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <section class="footer-section">
+                    <h3>About Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="landing.html">Landing Page</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="copyright.html">Copyright</a></li>
+                        <li><a href="terms-privacy.html">Terms & Privacy</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed navigation script loading -->
+    <script src="../js/navigation.js"></script>
+    
+    <!-- Chart.js for activity display -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script type="module" src="../js/footer.js"></script>
+    <script type="module" src="../js/profile.js"></script>
+</body>
+</html> 

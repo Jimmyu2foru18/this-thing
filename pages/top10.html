@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Authors: James McGuigan & Steven Foster -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Recipes - Recspicy</title>
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/top10.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+    <nav id="nav-container"></nav>
+
+    <main class="top10-container">
+        <section class="top10-header">
+            <h1 class="top10-title">Top 10 Recipes</h1>
+            <div class="category-selector">
+                <button class="category-btn active" data-category="all-time">All Time</button>
+                <button class="category-btn" data-category="this-week">This Week</button>
+                <button class="category-btn" data-category="trending">Trending</button>
+                <button class="category-btn" data-category="highest-rated">Highest Rated</button>
+            </div>
+        </section>
+
+        <section class="recipes-container">
+            <div class="recipes-grid" id="recipes-grid">
+            </div>
+        </section>
+
+        <section class="category-info">
+            <div class="info-card">
+                <h2>About This List</h2>
+                <p>These recipes are ranked based on user ratings, popularity, and overall engagement from our community.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="total-ratings">0</span>
+                        <span class="stat-label">Total Ratings</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="total-reviews">0</span>
+                        <span class="stat-label">Reviews</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <section class="footer-section">
+                    <h3>About Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="landing.html">Landing Page</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="copyright.html">Copyright</a></li>
+                        <li><a href="terms-privacy.html">Terms & Privacy</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/top10.js"></script>
+</body>
+</html> 

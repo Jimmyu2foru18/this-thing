@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src https://cdnjs.cloudflare.com; img-src 'self' data:;">
+    <title>Recspicy</title>
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/recipe.css">
+    <!-- Page specific CSS will be added here -->
+    
+    <!-- Load utilities first -->
+    <script src="../js/utils.js"></script>
+    
+    <!-- Load individual services -->
+    <script src="../js/authService.js"></script>
+    <script src="../js/recipeService.js"></script>
+    <script src="../js/mealPlanService.js"></script>
+    
+    <!-- Load centralized services last -->
+    <script src="../js/services.js"></script>
+</head>
+<body>
+    <nav id="nav-container"></nav>
+    
+    <!-- Main content will be injected here -->
+    <main id="main-content"></main>
+    
+    <footer id="footer-container"></footer>
+    
+    <!-- Page specific scripts will be added here -->
+</body>
+</html>
