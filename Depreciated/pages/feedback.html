@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Authors: James McGuigan & Steven Foster -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Recspicy</title>
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/feedback.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+
+    <main class="feedback-container">
+        <section class="feedback-header">
+            <h1 class="feedback-title">Your Feedback Matters</h1>
+            <p class="feedback-subtitle">Help us improve your Recspicy experience</p>
+        </section>
+
+        <form id="feedback-form" class="feedback-form">
+            <div class="form-group">
+                <label class="form-label">How would you rate your overall experience?</label>
+                <div class="star-rating" data-rating="overall">
+                    <button type="button" class="star-btn" data-value="1">☆</button>
+                    <button type="button" class="star-btn" data-value="2">☆</button>
+                    <button type="button" class="star-btn" data-value="3">☆</button>
+                    <button type="button" class="star-btn" data-value="4">☆</button>
+                    <button type="button" class="star-btn" data-value="5">☆</button>
+                </div>
+            </div>
+
+            <div class="rating-group">
+                <div class="rating-item">
+                    <label class="rating-label">Recipe Quality</label>
+                    <div class="star-rating" data-rating="quality">
+                        <button type="button" class="star-btn" data-value="1">☆</button>
+                        <button type="button" class="star-btn" data-value="2">☆</button>
+                        <button type="button" class="star-btn" data-value="3">☆</button>
+                        <button type="button" class="star-btn" data-value="4">☆</button>
+                        <button type="button" class="star-btn" data-value="5">☆</button>
+                    </div>
+                </div>
+
+                <div class="rating-item">
+                    <label class="rating-label">Ease of Use</label>
+                    <div class="star-rating" data-rating="usability">
+                        <button type="button" class="star-btn" data-value="1">☆</button>
+                        <button type="button" class="star-btn" data-value="2">☆</button>
+                        <button type="button" class="star-btn" data-value="3">☆</button>
+                        <button type="button" class="star-btn" data-value="4">☆</button>
+                        <button type="button" class="star-btn" data-value="5">☆</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">What aspects of Recspicy do you like the most?</label>
+                <textarea 
+                    class="form-textarea" 
+                    rows="3" 
+                    name="likes"
+                    placeholder="Tell us what you enjoy..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">What could we improve?</label>
+                <textarea 
+                    class="form-textarea" 
+                    rows="3" 
+                    name="improvements"
+                    placeholder="Share your suggestions..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Would you recommend Recspicy to others?</label>
+                <select class="form-select" name="recommend" required>
+                    <option value="">Select an option</option>
+                    <option value="definitely">Definitely</option>
+                    <option value="probably">Probably</option>
+                    <option value="maybe">Maybe</option>
+                    <option value="probably-not">Probably Not</option>
+                    <option value="definitely-not">Definitely Not</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-button">Submit Feedback</button>
+        </form>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <section class="footer-section">
+                    <h3>About Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="landing.html">Landing Page</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="copyright.html">Copyright</a></li>
+                        <li><a href="terms-privacy.html">Terms & Privacy</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/feedback.js"></script>
+</body>
+</html> 

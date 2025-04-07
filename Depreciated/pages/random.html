@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Authors: James McGuigan & Steven Foster -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Recipe - Recspicy</title>
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet" href="../css/recipe.css">
+    <link rel="stylesheet" href="../css/random.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+    <nav id="nav-container"></nav>
+
+    <main class="search-container">
+        <section class="search-header">
+            <h1 class="search-title">Random Recipe Generator</h1>
+            <p class="search-subtitle">Discover new meal ideas with just one click</p>
+            
+            <div class="random-header">
+                <button id="generate-btn" class="generate-btn search-button">
+                    Generate Random Recipe
+                </button>
+            </div>
+        </section>
+
+        <div class="recipe-content-wrapper">
+            <div class="recipe-header">
+                <div class="recipe-hero">
+                    <img id="recipe-image" src="" alt="" class="recipe-hero-image">
+                    <div class="recipe-hero-overlay">
+                        <div class="recipe-actions">
+                            <button id="star-btn" class="action-btn">
+                                ⭐ <span id="star-count">0</span>
+                            </button>
+                            <button id="favorite-btn" class="action-btn">❤️</button>
+                            <button id="print-btn" class="action-btn">🖨️ Print</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recipe-info">
+                    <h1 id="recipe-title" class="recipe-title"></h1>
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <span id="cook-time"></span>
+                        </div>
+                        <div class="meta-item">
+                            <span id="servings"></span>
+                        </div>
+                        <div class="meta-item">
+                            <span id="difficulty"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacing-block"></div>
+            </div>
+
+            <div class="recipe-content">
+                <div class="recipe-main">
+                    <section class="recipe-section">
+                        <div class="spacing-block"></div>
+                        <h2 class="filters-title">Ingredients</h2>
+                        <ul id="ingredients-list" class="ingredients-list"></ul>
+                    </section>
+
+                    <section class="recipe-section">
+                        <h2 class="filters-title">Instructions</h2>
+                        <ol id="instructions-list" class="instructions-list"></ol>
+                    </section>
+
+                    <section class="recipe-section">
+                        <h2 class="filters-title">Notes</h2>
+                        <div id="recipe-notes" class="recipe-notes"></div>
+                    </section>
+                </div>
+
+                <aside class="recipe-sidebar">
+                    <div class="nutrition-card filters-section">
+                        <h3 class="filters-title">Nutrition Facts</h3>
+                        <div id="nutrition-facts" class="nutrition-grid"></div>
+                    </div>
+
+                    <div class="tags-card filters-section">
+                        <h3 class="filters-title">Tags</h3>
+                        <div id="recipe-tags" class="tags-grid"></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <section class="footer-section">
+                    <h3>About Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="landing.html">Landing Page</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="copyright.html">Copyright</a></li>
+                        <li><a href="terms-privacy.html">Terms & Privacy</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed navigation script loading -->
+    <script src="../js/navigation.js"></script>
+    <script src="../js/random.js"></script>
+</body>
+</html> 

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Authors: James McGuigan & Steven Foster -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Recipe - Recspicy</title>
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet" href="../css/create-recipe.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+    <nav id="nav-container"></nav>
+
+    <main class="search-container">
+        <section class="search-header">
+            <h1 class="search-title">Create New Recipe</h1>
+            <p class="search-subtitle">Share your culinary masterpiece with the community</p>
+        </section>
+
+        <form class="create-recipe-form" id="create-recipe-form">
+            <div class="form-layout">
+                <section class="filters-section">
+                    <h2 class="filters-title">Basic Information</h2>
+                    <div class="form-group">
+                        <label class="filter-label">Recipe Title</label>
+                        <input type="text" class="search-input" id="recipe-title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="filter-label">Description</label>
+                        <textarea class="search-input" id="recipe-description" rows="3" required></textarea>
+                    </div>
+
+                    <div class="recipe-image-upload">
+                        <img src="../assets/placeholder-recipe.jpg" alt="Recipe" class="image-preview" id="recipe-image-preview">
+                        <div>
+                            <input type="file" id="recipe-image" accept="image/*" hidden>
+                            <label for="recipe-image" class="search-button">Upload Image</label>
+                        </div>
+                    </div>
+                    
+                    <h2 class="filters-title">Recipe Details</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="filter-label">Preparation Time (minutes)</label>
+                            <input type="number" class="filter-select" id="prep-time" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="filter-label">Cooking Time (minutes)</label>
+                            <input type="number" class="filter-select" id="cooking-time" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="filter-label">Servings</label>
+                            <input type="number" class="filter-select" id="servings" min="1" value="4" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="filter-label">Difficulty Level</label>
+                            <select class="filter-select" id="difficulty" required>
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="filter-label">Cuisine Type</label>
+                        <select class="filter-select" id="cuisine-type">
+                            <option value="">Select cuisine (optional)</option>
+                            <option value="italian">Italian</option>
+                            <option value="mexican">Mexican</option>
+                            <option value="asian">Asian</option>
+                            <option value="indian">Indian</option>
+                            <option value="mediterranean">Mediterranean</option>
+                            <option value="american">American</option>
+                            <option value="french">French</option>
+                            <option value="middle-eastern">Middle Eastern</option>
+                            <option value="african">African</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </section>
+                
+                <section class="results-section">
+                    <div class="form-group">
+                        <label class="filter-label">Meal Type</label>
+                        <div class="allergen-filters">
+                            <label class="allergen-checkbox"><input type="checkbox" name="meal-type" value="Breakfast"> Breakfast</label>
+                            <label class="allergen-checkbox"><input type="checkbox" name="meal-type" value="Lunch"> Lunch</label>
+                            <label class="allergen-checkbox"><input type="checkbox" name="meal-type" value="Dinner"> Dinner</label>
+                            <label class="allergen-checkbox"><input type="checkbox" name="meal-type" value="Snacks"> Snacks</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="filter-label">Dietary Categories</label>
+                        <div class="allergen-filters">
+                            <label class="allergen-checkbox"><input type="checkbox" name="dietary-category" value="vegetarian"> Vegetarian</label>
+                            <label class="allergen-checkbox"><input type="checkbox" name="dietary-category" value="vegan"> Vegan</label>
+                            <label class="allergen-checkbox"><input type="checkbox" name="dietary-category" value="gluten-free"> Gluten-Free</label>
+                            <label class="allergen-checkbox"><input type="checkbox" name="dietary-category" value="dairy-free"> Dairy-Free</label>
+                            <label class="allergen-checkbox"><input type="checkbox" name="dietary-category" value="keto"> Keto</label>
+                            <label class="allergen-checkbox"><input type="checkbox" name="dietary-category" value="paleo"> Paleo</label>
+                            <label class="allergen-checkbox"><input type="checkbox" name="dietary-category" value="low-carb"> Low-Carb</label>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2 class="filters-title">Ingredients</h2>
+                        <p class="helper-text">Enter ingredients with their amounts and units</p>
+                        <ul class="ingredients-list" id="ingredients-list">
+                            <li class="ingredient-item">
+                                <div class="ingredient-row">
+                                    <input type="text" class="filter-select ingredient-amount" placeholder="Amount" name="amount[]">
+                                    <input type="text" class="filter-select ingredient-unit" placeholder="Unit" name="unit[]">
+                                    <input type="text" class="filter-select ingredient-name" placeholder="Ingredient name" name="name[]" required>
+                                </div>
+                                <button type="button" class="remove-btn">Remove</button>
+                            </li>
+                        </ul>
+                        <button type="button" class="search-button add-btn" id="add-ingredient">Add Ingredient</button>
+                    </div>
+
+                    <div class="form-section">
+                        <h2 class="filters-title">Instructions</h2>
+                        <ul class="steps-list" id="steps-list">
+                            <li class="step-item">
+                                <textarea class="search-input step-input" rows="2" placeholder="Enter instruction step" name="steps[]" required></textarea>
+                                <button type="button" class="remove-btn">Remove</button>
+                            </li>
+                        </ul>
+                        <button type="button" class="search-button add-btn" id="add-step">Add Step</button>
+                    </div>
+
+                    <div class="form-section">
+                        <h2 class="filters-title">Nutrition Information (Optional)</h2>
+                        <p class="helper-text">Enter the nutritional information per serving</p>
+                        <div class="nutrition-grid">
+                            <div class="form-group">
+                                <label class="filter-label">Calories</label>
+                                <input type="number" class="filter-select" id="calories" min="0" placeholder="kcal">
+                            </div>
+                            <div class="form-group">
+                                <label class="filter-label">Protein</label>
+                                <input type="number" class="filter-select" id="protein" min="0" placeholder="g">
+                            </div>
+                            <div class="form-group">
+                                <label class="filter-label">Carbs</label>
+                                <input type="number" class="filter-select" id="carbs" min="0" placeholder="g">
+                            </div>
+                            <div class="form-group">
+                                <label class="filter-label">Fats</label>
+                                <input type="number" class="filter-select" id="fats" min="0" placeholder="g">
+                            </div>
+                            <div class="form-group">
+                                <label class="filter-label">Fiber</label>
+                                <input type="number" class="filter-select" id="fiber" min="0" placeholder="g">
+                            </div>
+                            <div class="form-group">
+                                <label class="filter-label">Sugar</label>
+                                <input type="number" class="filter-select" id="sugar" min="0" placeholder="g">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2 class="filters-title">Additional Notes</h2>
+                        <textarea class="search-input" id="recipe-notes" rows="3" placeholder="Add any tips, variations, or additional information"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="search-button cancel-btn" onclick="location.href='profile.html'">Cancel</button>
+                        <button type="submit" class="search-button save-btn">Create Recipe</button>
+                    </div>
+                </section>
+            </div>
+        </form>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <section class="footer-section">
+                    <h3>About Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="landing.html">Landing Page</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="copyright.html">Copyright</a></li>
+                        <li><a href="terms-privacy.html">Terms & Privacy</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed navigation script loading -->
+    <script src="../js/navigation.js"></script>
+    <script type="module" src="../js/recipeService.js"></script>
+    <script type="module" src="../js/create-recipe.js"></script>
+</body>
+</html> 

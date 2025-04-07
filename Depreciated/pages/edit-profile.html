@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Authors: James McGuigan & Steven Foster -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - Recspicy</title>
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet" href="../css/edit-profile.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+    <nav id="nav-container"></nav>
+
+    <main class="search-container">
+        <section class="search-header">
+            <h1 class="search-title">Edit Profile</h1>
+            <p class="search-subtitle">Customize your preferences and profile information</p>
+        </section>
+
+        <form id="edit-profile-form" class="edit-form">
+            <div class="form-section filters-section">
+                <h2 class="filters-title">Basic Information</h2>
+                <div class="form-group">
+                    <label for="display-name">Display Name</label>
+                    <input type="text" id="display-name" name="displayName" class="search-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" name="bio" rows="3" class="search-input"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="avatar">Profile Picture</label>
+                    <input type="file" id="avatar" name="avatar" accept="image/*">
+                    <div id="avatar-preview" class="avatar-preview"></div>
+                </div>
+            </div>
+
+            <div class="form-section results-section">
+                <h2 class="filters-title">Preferences</h2>
+                <div class="form-group">
+                    <label>Cuisine Types</label>
+                    <div class="checkbox-group" id="cuisine-types">
+                        <label class="allergen-checkbox"><input type="checkbox" name="cuisines" value="italian"> Italian</label>
+                        <label class="allergen-checkbox"><input type="checkbox" name="cuisines" value="asian"> Asian</label>
+                        <label class="allergen-checkbox"><input type="checkbox" name="cuisines" value="mexican"> Mexican</label>
+                        <label class="allergen-checkbox"><input type="checkbox" name="cuisines" value="indian"> Indian</label>
+                        <label class="allergen-checkbox"><input type="checkbox" name="cuisines" value="mediterranean"> Mediterranean</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dietary">Dietary Preferences</label>
+                    <select id="dietary" name="dietary" class="filter-select">
+                        <option value="none">No Restrictions</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="gluten-free">Gluten Free</option>
+                        <option value="dairy-free">Dairy Free</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="skill-level">Cooking Skill Level</label>
+                    <select id="skill-level" name="skillLevel" class="filter-select">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cooking-time">Preferred Cooking Time</label>
+                    <select id="cooking-time" name="cookingTime" class="filter-select">
+                        <option value="15">Under 15 mins</option>
+                        <option value="30">Under 30 mins</option>
+                        <option value="60">Under 1 hour</option>
+                        <option value="any">Any duration</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="search-button save-btn">Save Changes</button>
+                    <button type="button" class="search-button cancel-btn" onclick="window.location.href='profile.html'">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <section class="footer-section">
+                    <h3>About Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="landing.html">Landing Page</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </section>
+                <section class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="copyright.html">Copyright</a></li>
+                        <li><a href="terms-privacy.html">Terms & Privacy</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed navigation script loading -->
+    <script src="../js/navigation.js"></script>
+    <script type="module" src="../js/edit-profile.js"></script>
+</body>
+</html> 
