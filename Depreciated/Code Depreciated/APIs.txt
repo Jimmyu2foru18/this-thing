@@ -1,0 +1,3 @@
+API's
+https://publicapi.dev/tasty-api
+https://platform.fatsecret.com/api-editions
