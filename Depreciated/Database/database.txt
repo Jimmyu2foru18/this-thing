@@ -1,0 +1,297 @@
+const userSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: { // Store hashed password
+        type: String,
+        required: true
+    },
+    displayName: {
+        type: String,
+        required: false
+    },
+    bio: {
+        type: String,
+        required: false
+    },
+    avatar: {
+        type: String, // File path or URL
+        required: false
+    },
+    dietaryPreferences: {
+        type: [String],
+        required: false,
+        enum: ['vegetarian', 'vegan', 'gluten-free', 'dairy-free']
+    },
+    location: {
+        type: { 
+            type: String,
+            required: false
+        },
+        city: {
+            type: String,
+            required: false
+        }
+    },
+    created_at: {
+        type: Date,
+        default: Date.now()
+    },
+    updated_at: {
+        type: Date,
+        default: Date.now()
+    }
+});
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+const recipeSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: false
+    },
+    ingredients: {
+        type: [String],
+        required: false
+    },
+    steps: { // Cooking instructions
+        type: [String], // Each step can be an array of objects with instruction and ingredients
+        required: false
+    },
+    cookTime: {
+        type: Number,
+        required: false
+    },
+    servings: {
+        type: Number,
+        required: false
+    },
+    rating: {
+        type: Number, // 0-5 scale
+        required: false
+    },
+    category: { // Tags or meal types (e.g., breakfast, lunch, dinner)
+        type: [String],
+        required: false,
+        enum: ['breakfast', 'lunch', 'dinner', 'dessert', 'snack']
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true // Links recipe to the user who created it
+    }
+});
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+const mongoose = require('mongoose');
+const mealSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: [true, "Meal title is required"]
+    },
+    description: {
+        type: String,
+        required: false
+    },
+    ingredients: {
+        type: [String],
+        required: false // Array of ingredient names
+    },
+    preparationTime: {
+        type: String,
+        required: false
+    },
+    rating: {
+        type: Number,
+        required: false
+    },
+    category: { // Tags or meal types (e.g., breakfast, lunch, dinner)
+        type: [String],
+        required: false,
+        enum: ['breakfast', 'lunch', 'dinner', 'dessert', 'snack']
+    },
+    cookTime: { // In minutes
+        type: Number,
+        required: false
+    },
+    servings: {
+        type: Number,
+        required: false
+    },
+    day: { // Days of the week (Monday to Sunday)
+        type: String,
+        enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        required: true
+    },
+    mealType: { // Type of meal (e.g., main, side, dessert)
+        type: [String],
+        required: false,
+        enum: ['main', 'side', 'dessert']
+    }
+});
+
+mongoose.model('Meal', mealSchema);
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+const mongoose = require('mongoose');
+const planSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: [true, "Plan name is required"]
+    },
+    userId: { // References the user who created the plan
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    notes: {
+        type: String,
+        required: false
+    },
+    caloriesPerDay: {
+        type: Number,
+        required: false // Default can be 2000 (average)
+    },
+    dietaryRestrictions: { // Array of strings like ['vegan', 'gluten-free']
+        type: [String],
+        required: false,
+        enum: ['vegan', 'vegetarian', 'gluten-free', 'dairy-free']
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now()
+    }
+});
+
+mongoose.model('Plan', planSchema);
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//																																		//
+//															How its used																//
+//																																		//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+const meal = new Meal({
+    title: "Vegetarian Pasta",
+    description: "A delicious pasta dish with vegetables and tofu.",
+    ingredients: ["pasta", "tomatoes", "basil", "olive oil"],
+    preparationTime: "45 minutes",
+    rating: 4.5,
+    category: ["dinner"],
+    cookTime: 45,
+    servings: 4
+});
+
+meal.save((error, result) => {
+    if (error) console.error("Error saving meal:", error);
+    else console.log("Meal saved successfully!");
+});
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Meal.find({ day: "Wednesday" }, (error, meals) => {
+    if (error) console.error("Error fetching meals for Wednesday:", error);
+    else {
+        // Process meals for Wednesday
+        console.log("Meals available for Wednesday:", meals);
+    }
+});
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+const plan = new Plan({
+    name: "Weekly Meal Plan",
+    userId: user._id,
+    notes: "This is my weekly meal plan with balanced meals.",
+    dietaryRestrictions: ["vegan", "vegetarian"]
+});
+
+plan.save((error, result) => {
+    if (error) console.error("Error saving plan:", error);
+    else console.log("Plan saved successfully!");
+});
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+User.findById(user._id)
+    .populate('plans', { name: "Plan Name" })
+    .exec((error, user) => {
+        if (error) console.error("Error fetching plans:", error);
+        else {
+            // Process the plans associated with this user
+            console.log("Plans for user:", user.plans);
+        }
+});
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
